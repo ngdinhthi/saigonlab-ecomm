@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Student Management Appication</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+  <h1>Student List</h1>
+  <a th:href="@{/student/add}">Add New Student</a>
+  <br/>
+  <br/>
+  <div>
+    <table border="1">
+      <thead>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>GPA</th>
+        <th>Class Name</th>
+      </thead>
+      <tbody>
+        <tr th:each="student : ${studentList}">
+          <td><a th:href="@{/student/edit/{studentId}(studentId=${student.id})}" th:text="${student.code}"></a></td>
+          <td th:utext="${student.name}"></td>
+          <td th:utext="${student.email}"></td>
+          <td th:utext="${student.gpa}"></td>
+          <td th:utext="${student.clazzName}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+  <a th:href="@{/student/add}">Prev</a>
+  </div>
+</body>
+</html>
