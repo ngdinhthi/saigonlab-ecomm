@@ -1,8 +1,7 @@
 ### database
-create database ecomm_mobile character set utf8 collate utf8_bin engine=InnoDB;
+create database ecomm_mobile character set utf8 collate utf8_bin;
 
 use ecomm_mobile;
-
 
 ### tables
 create table user_login (
@@ -32,7 +31,7 @@ create table permission (
 
 create table user_permission (
   user_id bigint(12) not null,
-  permission_id id not null,
+  permission_id int id not null,
   permission_default bit(1) default 0
 );
 
