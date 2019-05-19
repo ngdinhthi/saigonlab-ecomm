@@ -35,34 +35,34 @@
   </bean>
 
   <!-- Database Configuration -->
-<!--  <context:property-placeholder location="classpath:jdbc.properties" />-->
+  <context:property-placeholder location="classpath:jdbc.properties" />
 
-<!--  <bean id="dataSource"-->
-<!--    class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-<!--    <property name="driverClassName" value="${jdbc.driverClassName}" />-->
-<!--    <property name="url" value="${jdbc.url}" />-->
-<!--    <property name="username" value="${jdbc.username}" />-->
-<!--    <property name="password" value="${jdbc.password}" />-->
-<!--  </bean>-->
-<!--  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
-<!--    <property name="entityManagerFactory" ref="entityManagerFactory" />-->
-<!--    <property name="jpaDialect">-->
-<!--      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />-->
-<!--    </property>-->
-<!--  </bean>-->
-<!--  <bean id="entityManagerFactory"-->
-<!--    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
-<!--    <property name="dataSource" ref="dataSource" />-->
-<!--    <property name="packagesToScan" value="edu.sg.spring.mvc.domain" />-->
-<!--    <property name="jpaVendorAdapter">-->
-<!--      <bean-->
-<!--        class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
-<!--        <property name="showSql" value="false" />-->
-<!--        <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />-->
-<!--        <property name="database" value="MYSQL" />-->
-<!--      </bean>-->
-<!--    </property>-->
-<!--  </bean>-->
-<!--  <jpa:repositories base-package="edu.sg.spring.mvc.repository" />-->
+  <bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.driverClassName}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+  </bean>
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+    <property name="jpaDialect">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+    </property>
+  </bean>
+  <bean id="entityManagerFactory"
+    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="edu.sg.web.ecomm.domain" />
+    <property name="jpaVendorAdapter">
+      <bean
+        class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="false" />
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />
+        <property name="database" value="MYSQL" />
+      </bean>
+    </property>
+  </bean>
+  <jpa:repositories base-package="edu.sg.web.ecomm.repository" />
 
 </beans>
