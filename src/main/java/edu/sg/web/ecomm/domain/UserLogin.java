@@ -1,6 +1,7 @@
 package edu.sg.web.ecomm.domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,6 +27,7 @@ public class UserLogin implements Serializable {
 
   private String password;
 
+  @Column(name = "hash_type")
   private String hashType;
 
   private boolean active;

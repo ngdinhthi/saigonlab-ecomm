@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+  <!-- Auto Scan Components -->
+  <context:annotation-config />
+  <context:component-scan base-package="edu.sg.web.ecomm" />
+  <mvc:annotation-driven />
+
+<!--  <mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**" />-->
+
+  <!-- Thymeleaf Configuration -->
+<!--  <bean id="templateResolver"-->
+<!--    class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">-->
+<!--    <property name="prefix" value="/WEB-INF/templates/" />-->
+<!--    <property name="suffix" value=".html" />-->
+<!--    <property name="templateMode" value="HTML5" />-->
+<!--    <property name="cacheable" value="false" />-->
+<!--  </bean>-->
+<!--  <bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">-->
+<!--    <property name="templateResolver" ref="templateResolver" />-->
+<!--  </bean>-->
+<!--  <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">-->
+<!--    <property name="templateEngine" ref="templateEngine" />-->
+<!--  </bean>-->
+
+  <!-- Database Configuration -->
+  <context:property-placeholder location="classpath:jdbc.properties" />
+
+  <bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.driverClassName}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+  </bean>
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+    <property name="jpaDialect">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+    </property>
+  </bean>
+  <bean id="entityManagerFactory"
+    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="edu.sg.web.ecomm.domain" />
+    <property name="jpaVendorAdapter">
+      <bean
+        class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="false" />
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />
+        <property name="database" value="MYSQL" />
+      </bean>
+    </property>
+  </bean>
+  <jpa:repositories base-package="edu.sg.web.ecomm.repository" />
+
+</beans>

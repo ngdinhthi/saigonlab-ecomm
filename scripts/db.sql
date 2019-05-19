@@ -1,6 +1,10 @@
-create database ecomm_mobile character set utf8 collate utf8_bin;
+### database
+create database ecomm_mobile character set utf8 collate utf8_bin engine=InnoDB;
+
 use ecomm_mobile;
 
+
+### tables
 create table user_login (
   id bigint(12) not null,
   username varchar(255) not null,
@@ -31,3 +35,6 @@ create table user_permission (
   permission_id id not null,
   permission_default bit(1) default 0
 );
+
+### foreign keys
+### alter table user_login add constraint fk_user_login_user_info foreign key (id) references user_info(user_id);

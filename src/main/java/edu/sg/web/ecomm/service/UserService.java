@@ -1,4 +1,8 @@
 package edu.sg.web.ecomm.service;
 
-public class UserService {
+import edu.sg.web.ecomm.dto.UserLoginDto;
+
+public interface UserService {
+
+  void registerUser(UserLoginDto user);
 }
