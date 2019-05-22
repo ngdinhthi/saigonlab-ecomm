@@ -10,10 +10,10 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user_login")
-public class UserLogin implements Serializable {
+@Table(name = "v_user_login")
+public class VUserLogin implements Serializable {
 
-  private static final long serialVersionUID = -3074924826644002793L;
+  private static final long serialVersionUID = -3074924826644002792L;
 
   @Id
   @GeneratedValue

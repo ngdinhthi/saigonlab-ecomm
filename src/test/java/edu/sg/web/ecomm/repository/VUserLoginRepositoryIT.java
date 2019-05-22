@@ -1,9 +1,7 @@
 package edu.sg.web.ecomm.repository;
 
-import edu.sg.web.ecomm.domain.UserLogin;
-import java.util.List;
+import edu.sg.web.ecomm.domain.VUserLogin;
 import java.util.Optional;
-import org.apache.catalina.User;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,29 +14,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-config-test.xml" })
 @Rollback
-public class UserLoginRepositoryIT {
+public class VUserLoginRepositoryIT {
 
   @Autowired
-  private UserLoginRepository repository;
+  private VUserLoginRepository repository;
 
   @Test
   public void test() {
-    List<UserLogin> users = repository.findAll();
-    for (UserLogin user : users) {
-      System.out.println("username = " + user.getName());
-    }
-  }
-
-  @Test
-  public void test1() {
-    Optional<UserLogin> user = repository.findByPassword("1234");
+    Optional<VUserLogin> user = repository.findById(1L);
     Assert.assertThat(user.isPresent(), CoreMatchers.is(true));
   }
-
-  @Test
-  public void test2() {
-    Optional<UserLogin> user = repository.findByName("thi123");
-    Assert.assertThat(user.isPresent(), CoreMatchers.is(true));
-  }
-
 }

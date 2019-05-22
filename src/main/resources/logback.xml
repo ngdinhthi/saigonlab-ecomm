@@ -13,6 +13,10 @@
     <appender-ref ref="STDOUT" />
   </logger>
 
+  <logger name="org.springframework.data" level="debug" additivity="false">
+    <appender-ref ref="STDOUT" />
+  </logger>
+
   <logger name="edu.sg.web.ecomm" level="debug" additivity="false">
     <appender-ref ref="STDOUT" />
   </logger>
