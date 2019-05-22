@@ -5,7 +5,7 @@ use ecomm_mobile;
 
 ### tables
 create table user_login (
-  id bigint(12) not null,
+  id bigint(12) not null auto_increment,
   username varchar(255) not null,
   email varchar(500) not null,
   phone varchar(50) default null,
@@ -22,7 +22,7 @@ create table user_info (
 );
 
 create table permission (
-  id int not null,
+  id int not null auto_increment,
   code varchar(50) not null,
   name varchar(255) not null,
   description varchar(1000),
@@ -31,7 +31,7 @@ create table permission (
 
 create table user_permission (
   user_id bigint(12) not null,
-  permission_id int id not null,
+  permission_id int not null,
   permission_default bit(1) default 0
 );
 

@@ -17,6 +17,12 @@ public class UserLoginDto implements Serializable {
 
   private String phone;
 
+  private String password;
+
+  private String hashType;
+
+  private boolean active;
+
   private Map<String, String> info;
 
 }

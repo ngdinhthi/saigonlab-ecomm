@@ -1,6 +1,7 @@
 package edu.sg.web.ecomm.repository;
 
 import edu.sg.web.ecomm.domain.VUserLogin;
+import edu.sg.web.ecomm.support.ContextIT;
 import java.util.Optional;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
@@ -12,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-config-test.xml" })
+@ContextIT
 @Rollback
 public class VUserLoginRepositoryIT {
 
