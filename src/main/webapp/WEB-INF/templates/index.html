@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<title>Student Management Appication</title>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title th:text="${title}">TITLE</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-  <h1>Welcome Student Management Appication</h1>
-  <a th:href="@{/students}">Student List</a>
-  <a th:href="@{/student/add}">Add New Student</a>
+  <h1>Welcome User Management Appication</h1>
+  <h2>Chào mừng tới ứng dụng này</h2>
+  <a th:href="@{/users}">User List</a>
+  <a th:href="@{/users/add}">Add New User</a>
 </body>
 </html>
